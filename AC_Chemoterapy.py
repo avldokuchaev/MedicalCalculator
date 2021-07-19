@@ -13,19 +13,18 @@ reduction_doze_doksorubicin = int(input("Если нужна редукция д
 reduction_doze_ciklophosphamid = int(input("Если нужна редукция дозы Циклофосфамида, введите цифру процентов, \
 иначе введите \"0\": "))
 
+doksorubicin = 60
+ciklophosphamid = 600
+
 res = square_body_chemotherapy(height, weight)
 
 if reduction_doze_doksorubicin == 0 and reduction_doze_ciklophosphamid == 0:
-    doksorubicin = 60
-    ciklophosphamid = 600
     doksorubicin_doza = doksorubicin * res
     ciklophosphamid_doza = ciklophosphamid * res
     print(f"Площадь поверхности тела = {str(res)} квадратных метров")
     print(f"Необходимая доза Доксорубицина = {str(round(doksorubicin_doza))} мг")
     print(f"Необходимая доза Циклофосфамида = {str(round(ciklophosphamid_doza))} мг")
 elif reduction_doze_doksorubicin == 0 and reduction_doze_ciklophosphamid != 0:
-    doksorubicin = 60
-    ciklophosphamid = 600
     doksorubicin_doza = doksorubicin * res
     ciklophosphamid_doza = (ciklophosphamid * res) - ((ciklophosphamid * res) * (reduction_doze_ciklophosphamid / 100))
     print(f"Площадь поверхности тела = {str(res)} квадратных метров")
@@ -35,8 +34,6 @@ elif reduction_doze_doksorubicin == 0 and reduction_doze_ciklophosphamid != 0:
         f"Необходимая доза Циклофосфамида (редуцированная на {reduction_doze_ciklophosphamid}%)  "
         f"= {str(round(ciklophosphamid_doza))} мг")
 elif reduction_doze_doksorubicin != 0 and reduction_doze_ciklophosphamid == 0:
-    doksorubicin = 60
-    ciklophosphamid = 600
     doksorubicin_doza = (doksorubicin * res) - ((doksorubicin * res) * (reduction_doze_doksorubicin / 100))
     ciklophosphamid_doza = ciklophosphamid * res
     print(f"Площадь поверхности тела = {str(res)} квадратных метров")
@@ -45,8 +42,6 @@ elif reduction_doze_doksorubicin != 0 and reduction_doze_ciklophosphamid == 0:
         f"{str(round(doksorubicin_doza))} мг")
     print(f"Необходимая доза Циклофосфамида = {str(round(ciklophosphamid_doza))} мг")
 else:
-    doksorubicin = 60
-    ciklophosphamid = 600
     doksorubicin_doza = (doksorubicin * res) - ((doksorubicin * res) * (reduction_doze_doksorubicin / 100))
     ciklophosphamid_doza = (ciklophosphamid * res) - ((ciklophosphamid * res) * (reduction_doze_ciklophosphamid / 100))
     print(f"Площадь поверхности тела = {str(res)} квадратных метров")
